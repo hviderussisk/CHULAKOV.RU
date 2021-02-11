@@ -1,0 +1,150 @@
+@import './../../assets/css/var'
+@import './../../assets/css/mix'
+@import './../../assets/css/animation'
+
+
+.body
+    @include display-flex(column, null, null)
+    width: 1000px
+    padding: 0px 100px
+    margin: auto
+    @include response(991)
+        width: 100%
+        padding: 0px 50px
+        box-sizing: border-box
+    @include response(479)
+        padding: 0px 20px
+    .lang
+        @include display-flex(null, null, null)
+        height: 45px
+        .activeLang
+            font-size: $fontSizePanel + 1
+            background: $colorAccent
+            padding: 2px 5px
+            border-radius: 5px
+            color: black
+            @include transition
+        > div
+            font-size: $fontSizePanel
+            margin: 10px 5px
+            padding: 3px 5px
+            color: $colorGrey 
+            font-weight: $fontW800 
+            cursor: pointer
+            @include transition
+            @include buttonActionDarkenColor($colorGrey)
+    .panel
+        @include display-flex(null, null, null)
+        @include response(767)
+            @include display-flex(column, null, null)
+        .sort
+            @include display-flex(column, null, null)
+            .sortTitle
+                margin: 20px 0 0 10px
+                text-align: left
+                letter-spacing: 0.5px
+                font-size: $fontSizePanel + 2
+                font-weight: $fontW800  
+            .controlSort
+                @include display-flex(row, space-around, null)
+                margin: 10px 0px
+                border-radius: $borderRadius
+                background: $backgroudLightGrey
+                position: relative
+                font-size: $fontSizePanel
+                border: 1px solid #eaeaea
+                box-shadow: $innerShadow
+                @include response(479)
+                    font-size: $fontSizePanel - 2
+                a
+                    @include display-flex(null, null, center)
+                    width: 100%
+                    text-decoration: none
+                .itemSort
+                    display: block
+                    box-sizing: border-box
+                    width: 100%
+                    height: 100%
+                    text-align: center
+                    padding: 5px 20px 
+                    cursor: pointer
+                    font-weight: $fontW400 
+                    color: $colorGrey 
+                    opacity: 0.99
+                    @include transition
+                    @include buttonActionDarkenColor($colorGrey)
+                    @include response(479)
+                        padding: 5px 10px
+                    
+                    div
+                        height: 100%
+                        @include display-flex(null, center, center)
+                .af
+                    color: black
+                    font-weight: $fontW500 
+                    @include transition
+                .active
+                    background: $colorAccent
+                    box-shadow: $outShadow
+                    border-radius: $borderRadius
+                    position: absolute
+                    height: 100%
+                    left: 0
+                    cursor: pointer
+                    padding: 3px 0px
+                    top: -3px
+                    @include transition
+                &:last-child
+                    height: 100%
+                    span
+                        @include display-flex(null, center, center)
+                        height: 100%
+                        opacity: .99
+            &:last-child
+                padding-left: 10px
+                width: 40%
+                @include response(767)
+                    padding: 0px
+                    width: 100%
+            &:first-child
+                padding-right: 10px
+                width: 60%
+                @include response(767)
+                    padding: 0px
+                    width: 100%
+    .search
+        @include display-flex(null, null, center)
+        margin: 20px 0px 10px
+        position: relative
+        overflow: hidden
+        input
+            box-shadow: $innerShadow
+            background: $backgroudLightGrey
+            font-size: $fontSizePanel
+            font-family: 'Montserrat'
+            outline: none
+            border: 1px solid #eaeaea
+            padding: 10px 20px
+            border-radius: $borderRadius
+            width: 50%
+            @include placeholder(0px)
+            &:focus
+                @include placeholder(-500px)
+            @include response(767)
+                width: 100%
+                font-size: $fontSizePanel - 2
+            
+    .prevPos
+        @include display-flex(null, space-between, null)
+        flex-wrap: wrap
+        width: 100%
+
+.animationFadeInUp
+    @include animation(fadeInUp)
+    -webkit-animation-duration: .5s
+    animation-duration: .5s
+    -webkit-animation-fill-mode: both
+    animation-fill-mode: both
+ 
+            
+

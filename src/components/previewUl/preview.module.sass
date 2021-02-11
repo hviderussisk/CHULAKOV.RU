@@ -1,0 +1,87 @@
+@import './../../assets/css/var'
+@import './../../assets/css/mix'
+@import './../../assets/css/animation'
+
+.preview
+    @include display-flex(null, space-between, null)
+    width: 40%
+    opacity: 0
+    background: white
+    margin-top: 20px
+    padding: 40px
+    border-radius: $borderRadius
+    box-shadow: $outShadow
+    .video
+        @include display-flex(null, flex-end, null)
+        video
+            width: 90%
+            border-radius: $borderRadius
+            outline: none
+    .body
+        @include display-flex(column, null, null)
+    .headerItem
+        margin-bottom: 10px
+    .bodyPreview
+        @include display-flex(column, null, null)
+        div
+            margin-bottom: 10px
+    .favourite
+        width: $sizeFavourite
+        span
+            cursor: pointer
+            font-size: $sizeFavourite
+            animation-duration: $animationTime
+            transition: $animationTime ease-in-out
+            background: #4e4e4e
+            text-shadow: 0px 1px 2px #f1f1f1
+            color: transparent
+            -webkit-background-clip: text
+            -moz-background-clip: text
+            background-clip: text
+            &:hover
+                color: transparent
+                text-shadow: 0px 1px 2px $colorAccent
+    .name
+        font-weight: $fontW500    
+    .phrase
+        text-align: left        
+    div
+        @include display-flex(null, null, center)
+        width: 100%
+        font-weight: $fontW500
+        font-size: $fontSizeUL
+    .avatar 
+        width: 60px
+        border-radius: 50%
+        padding: 10px
+        img
+            width: 40px
+            height: 40px 
+            display: block
+
+.addAnim 
+    -webkit-animation-name: bounceIn
+    animation-name: bounceIn
+
+.remAnim 
+    -webkit-animation-name: bounceOut
+    animation-name: bounceOut
+    animation-direction: reverse
+    -webkit-animation-direction: reverse
+
+
+.preview
+    @include response(991)
+        padding: 4%
+    @include response(767)
+        @include display-flex(column, null, null)
+    @include response(479)
+        width: 100%
+        padding: 25px
+    .video
+        video
+            @include response(767)
+                border-radius: $borderRadius - 10
+                width: 100%
+                margin-top: 10px
+    

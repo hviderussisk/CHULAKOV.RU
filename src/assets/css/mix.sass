@@ -1,0 +1,51 @@
+@mixin display-flex($direction, $justify, $alignItems)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: $alignItems
+
+@mixin animation($name)
+    -webkit-animation-name: $name
+    animation-name: $name
+
+@mixin transition($what: all, $time: 0.15s, $how: ease-in-out)
+    -webkit-transition: $what $time $how
+    -moz-transition:    $what $time $how
+    -ms-transition:     $what $time $how
+    -o-transition:      $what $time $how
+    transition:         $what $time $how
+
+@mixin stylePlaceholder($textIndent)
+    color: $colorGrey 
+    text-indent: $textIndent  
+    transition: text-indent $animationTime ease
+
+@mixin placeholder($textIndent)
+    &::-webkit-input-placeholder
+        @include stylePlaceholder($textIndent)
+    &::-moz-placeholder     
+        @include stylePlaceholder($textIndent)
+    &:-moz-placeholder     
+        @include stylePlaceholder($textIndent)
+    &:-ms-input-placeholder
+        @include stylePlaceholder($textIndent)
+
+
+@mixin response($screen)
+    @media all and (max-width: $screen+"px")
+        @content
+
+@mixin mr($screen)
+    @media all and (min-width: $screen+"px")
+        @content
+
+
+@mixin buttonActionDarkenColor($color)
+    &:hover
+        color: darken($color, 25% )
+    &:focus
+        color: darken($color, 25% )
+    &:active
+        color: darken($color, 25% )
+    &:visited
+        color: darken($color, 25% )
